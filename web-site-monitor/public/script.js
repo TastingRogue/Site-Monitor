@@ -24,7 +24,7 @@
  	});
  	$(".lightButton").click(function(){
  		var firebaseRef = firebase.database().ref().child("ledStatus");
- 		if (led){
+ 		if (ledStatus){
  			firebaseRef.set(0);
  			ledStatus = 0;
  		}
