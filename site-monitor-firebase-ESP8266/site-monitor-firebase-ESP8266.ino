@@ -25,6 +25,9 @@ void setup() {
   Serial.println();
   Serial.print("connected: ");
   Serial.println(WiFi.localIP());
+  Serial.println();
+  Serial.print("MAC: ");
+  Serial.println(WiFi.macAddress());
   
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   pinMode(ledPower, OUTPUT);
