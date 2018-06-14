@@ -15,11 +15,21 @@
 
  	database.ref().on("value", function(snap){
  		ledStatus = snap.val().ledStatus;
+ 		humidityAlert = snap.val().humidityAlert;
+
+ 		$(".temp").text(snap.val().Temperature);
+ 		$(".humidity").text(snap.val().Humidity);
  		if (ledStatus){
  			$(".lightStatus").text("The light is on");
  		}
  		else{
  			$(".lightStatus").text("The light is off");
+ 		}
+ 		if (humidityAlert){
+ 			$(".alert").text("Alert!!!");
+ 		}
+ 		else{
+ 			$(".alert").text("");
  		}
  	});
  	$(".lightButton").click(function(){

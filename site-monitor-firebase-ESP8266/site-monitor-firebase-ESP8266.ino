@@ -4,12 +4,14 @@
 #include <FirebaseArduino.h>
 
 // Set these to run example.
-#define FIREBASE_HOST "site-monitor-01.firebaseio.com/"
-#define FIREBASE_AUTH "bGZn3Dbxpxt8nIiRGQhf1FmiQgZSjpho2oSvbgG6"
+#define FIREBASE_HOST "site-monitor-01.firebaseio.com"
+#define FIREBASE_AUTH "odewilCLq80qFMQQotsrp2bz2yQWkur21BVZ5Bm2"
 #define WIFI_SSID "TOTALPLAY_A027B3"
 #define WIFI_PASSWORD "2WD43T2C4W"
+#define led 2
 
-int ledPower = 5;
+int tempperatureVal = 1;
+int humidityVal = 0;
 
 void setup() {
   //Setup code
@@ -25,22 +27,42 @@ void setup() {
   Serial.println();
   Serial.print("connected: ");
   Serial.println(WiFi.localIP());
-  Serial.println();
   Serial.print("MAC: ");
   Serial.println(WiFi.macAddress());
   
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
-  pinMode(ledPower, OUTPUT);
+  pinMode(led, OUTPUT);
+  pinMode(D8, OUTPUT);
+}
+
+int addition(int temp){
+  temp++;
+  return(temp);
+}
+void humidityAlert(){
+  int alert = digitalRead(D8);
+  if(alert == HIGH){
+    Firebase.setInt("humidityAlert", 1);  
+  }
+  else{
+    Firebase.setInt("humidityAlert", 0);
+  }
 }
 
 void loop() {
   //Main code
-  int ledStatus = Firebase.getInt("ledStatus");
-  Serial.println(ledStatus);
-  if(ledStatus){
-    digitalWrite(ledPower, HIGH); 
+  tempperatureVal = addition(tempperatureVal);
+  humidityAlert();
+  
+  Serial.print(tempperatureVal);
+  Serial.println(Firebase.getInt("ledStatus"));
+  if(Firebase.getInt("ledStatus")){
+    digitalWrite(led, LOW); 
   }
   else{
-    digitalWrite(ledPower, LOW);
+    digitalWrite(led, HIGH);
   }
+  Firebase.setInt ("Temperature",tempperatureVal);
+  Firebase.setInt ("Humidity",humidityVal);
+  delay(500);
 }
