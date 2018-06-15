@@ -6,8 +6,8 @@
 // Set these to run example.
 #define FIREBASE_HOST "site-monitor-01.firebaseio.com"
 #define FIREBASE_AUTH "odewilCLq80qFMQQotsrp2bz2yQWkur21BVZ5Bm2"
-#define WIFI_SSID "TOTALPLAY_A027B3"
-#define WIFI_PASSWORD "2WD43T2C4W"
+#define WIFI_SSID "Unosquare Mobiles"
+#define WIFI_PASSWORD "3336789139"
 #define led 2
 
 int tempperatureVal = 1;
@@ -63,6 +63,17 @@ void loop() {
     digitalWrite(led, HIGH);
   }
   Firebase.setInt ("Temperature",tempperatureVal);
+  // handle error
+  if (Firebase.failed()) {
+      Serial.print("setting /number failed:");
+      Serial.println(Firebase.error());  
+      return;
+  }
   Firebase.setInt ("Humidity",humidityVal);
-  delay(500);
+  // handle error
+  if (Firebase.failed()) {
+      Serial.print("setting /number failed:");
+      Serial.println(Firebase.error());  
+      return;
+  }
 }
