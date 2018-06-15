@@ -17,22 +17,22 @@
  		ledStatus = snap.val().ledStatus;
  		humidityAlert = snap.val().humidityAlert;
 
- 		$(".temp").text(snap.val().Temperature);
- 		$(".humidity").text(snap.val().Humidity);
+ 		$("#temp").text(snap.val().Temperature);
+ 		$("#humidity").text(snap.val().Humidity);
  		if (ledStatus){
- 			$(".lightStatus").text("The light is on");
+ 			$("#lightStatus").text("The light is on");
  		}
  		else{
- 			$(".lightStatus").text("The light is off");
+ 			$("#lightStatus").text("The light is off");
  		}
  		if (humidityAlert){
- 			$(".alert").text("Alert!!!");
+ 			$("#alert").text("Alert!");
  		}
  		else{
- 			$(".alert").text("");
+ 			$("#alert").text("Fine");
  		}
  	});
- 	$(".lightButton").click(function(){
+ 	$("#lightButton").click(function(){
  		var firebaseRef = firebase.database().ref().child("ledStatus");
  		if (ledStatus){
  			firebaseRef.set(0);
