@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Site Monitor</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css_js/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css_js/mdb.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url("img/imgix-391813-unsplash.jpg")no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="fixed-sn graphite-skin">
+
+	<!--Double Navigation-->
+    <header>
+
+        <!-- Sidebar navigation -->
+        <ul id="slide-out" class="side-nav fixed custom-scrollbar ps-container ps-theme-default" data-ps-id="dcd2e9ff-59ee-90d2-5f38-a4795faa3958" style="transform: translateX(-100%);">
+
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper sn-ad-avatar-wrapper">
+                    <img src="img/galloPNG-2.png" class="img-fluid rounded-circle">
+                    <div class="rgba-stylish-strong">
+                        <p id="userName" style="padding: 30px 0 0 30px;" class="user white-text">User</p>
+                        <p id="userEmail" style="margin-left: 10px;" class="user white-text">Email</p>
+                    </div>
+                </div>
+            </li>
+            <!--/. Logo -->
+
+            <!-- Side navigation links -->
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li style="margin-top: 30px;" class=""><a class="collapsible-header waves-effect arrow-r active" href="#"><i class="fa fa-street-view"></i> Americas</a></li>
+                    <li class=""><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-street-view"></i> Sao Paulo</a></li>
+                    <li class=""><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-street-view"></i> Allius</a></li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+
+        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></ul>
+        <!--/. Sidebar navigation -->
+
+        <!--Navbar-->
+        <nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+
+            <!-- SideNav slide-out button -->
+            <div class="float-xs-left">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn">
+                <p>SiteMonitor</p>
+            </div>
+
+            <!-- Redirect to loggin navbar -->
+            <ul class="nav navbar-nav float-xs-right">
+                <li id="logout" class="nav-item ">
+                    <a class="nav-link waves-effect waves-light" href="#"><i class="fa fa-user"></i> <span class="hidden-sm-down">Logout</span></a>
+                </li>
+            </ul>
+
+        </nav>
+        <!--/.Navbar-->
+
+    </header>
+
+    <!--Main layout-->
+    <main class="">
+        <div class="container-fluid text-xs-center" style="height: 500px;">
+           <div class="row">
+
+                <div class="col-md-4">
+                    <!--Card-->
+                    <div class="card testimonial-card">
+                    	<!--Bacground color-->
+                        <div class="card-up blue">
+                        </div>
+                        <!--Avatar-->
+                        <div class="avatar"><img src="img/burn.png" class="img-circle img-responsive">
+                        </div>
+                        <div class="card-block">
+                            <!--Name-->
+                            <h4 class="card-title">Temperature</h4>
+                            <hr>
+                            <!--Quotation-->
+                            <h1 id="temp">32°C</h1>
+                        </div>
+                    </div>
+                    <!--/.Card-->
+                </div>
+
+                <div class="col-md-4 hidden-sm-down">
+                	<!--Card-->
+                	<div class="card testimonial-card">
+                    	<!--Bacground color-->
+                    	<div class="card-up blue">
+                    	</div>
+                    	<!--Avatar-->
+                    	<div class="avatar"><img src="img/rain.png" class="img-circle img-responsive">
+                    	</div>
+                		<div class="card-block">
+                        	<!--Name-->
+                        	<h4 class="card-title">Humidity</h4>
+                        	<hr>
+                        	<!--Quotation-->
+                        	<h1 id="humidity">70%</h1>
+                        </div>
+                    </div>
+                    <!--/.Card-->
+                </div>
+
+                <div class="col-md-4 hidden-sm-down">
+                    <!--Card-->
+                    <div class="card testimonial-card">
+                        <!--Bacground color-->
+                        <div class="card-up blue">
+                        </div>
+                        <!--Avatar-->
+                        <div id="lightButton" class="avatar"><img src="img/galloPNG-2.png" class="img-circle img-responsive">
+                        </div>
+                        <div class="card-block">
+                          	<!--Name-->
+                            <h4 id="lightStatus" class="card-title"></h4>
+                            <hr>
+                            <!--Quotation-->
+                            <h1 id="alert">Fine</h1>
+                        </div>
+                    </div>
+                    <!--/.Card-->
+                </div>
+            </div>
+            <!--/.First slide-->
+        </div>
+	</main>
+	<!--/Main layout-->
+
+	<!--Footer-->
+    <footer class="page-footer center-on-small-only">
+
+        <!--Footer Links-->
+        <div class="container-fluid">
+            <div class="row">
+
+                <!--First column-->
+                <div class="col-md-3 offset-md-3">
+                    <h5 class="title"></h5>
+                    <p></p>
+                </div>
+                <!--/.First column-->
+
+                <hr class="hidden-md-up">
+
+                <!--Second column-->
+                <div class="col-md-3">
+                    <h5 class="title"></h5>
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></
+                    </ul>
+                </div>
+                <!--/.Second column-->
+
+            </div>
+        </div>
+        <!--/.Footer Links-->
+
+        <hr>
+
+        <!--Social buttons-->
+        <div class="social-section">
+            <ul>
+               <li><a class="btn-floating btn-small btn-ins waves-effect waves-light" href="https://unsplash.com/@imgix?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from imgix"><i style="margin-top: 4px;" class="fas fa-camera"></i></a></li>
+            </ul>
+        </div>
+        <!--/.Social buttons-->
+
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © 2016 Copyright: <a href="http://www.ucol.mx/"></a>
+
+            </div>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+
+<!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="css_js/jquery-3.1.1.min.js.descarga"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
+    <!-- Conection Firebase -->
+    <script type="text/javascript" src="script.js"></script>
+
+    <!-- Tooltips -->
+    <script type="text/javascript" src="css_js/tether.min.js.descarga"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="css_js/bootstrap.min.js.descarga"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="css_js/mdb.min.js.descarga"></script>
+
+    <script>
+        $(".button-collapse").sideNav();
+
+        var el = document.querySelector('.custom-scrollbar');
+
+        Ps.initialize(el);
+    </script>
+
+
+
+
+    <div class="hiddendiv common"></div>
+    <div class="drag-target" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;">
+    </div>
+
+</body>
+</html>

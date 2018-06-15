@@ -13,6 +13,52 @@
  	var database = firebase.database();
  	var ledStatus;
 
+ 	firebase.auth().onAuthStateChanged(function(user) {
+ 		var pathname = window.location.pathname;
+  		if (user) {
+    		// User is signed in.
+    		if (pathname == "/index.html") {
+    			window.location.replace("americas.html");
+    		}
+    		var user = firebase.auth().currentUser;
+    		if (user != null) {
+    			var email_id = user.email;
+
+    			$("#userEmail").text(email_id);
+    		}
+  		} else {
+    		// No user is signed in.
+    		if (pathname == "/americas.html") {
+    			window.location.replace("index.html");
+    		}
+  		}
+	});
+
+ 	$("#login").click(function(){
+ 		var userEmail = document.getElementById("form2").value;
+ 		var userPassword = document.getElementById("form4").value;
+
+ 		firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
+  			// Handle Errors here.
+  			var errorCode = error.code;
+  			var errorMessage = error.message;
+  			
+  			window.alert("Error : " + errorMessage);
+
+		});
+ 	});
+ 	$("#logout").click(function(){
+ 		firebase.auth().signOut().then(function() {
+  			// Sign-out successful.
+		}).catch(function(error) {
+  			// An error happened.
+  			var errorCode = error.code;
+  			var errorMessage = error.message;
+  			
+  			window.alert("Error : " + errorMessage);
+		});
+ 	});
+
  	database.ref().on("value", function(snap){
  		ledStatus = snap.val().ledStatus;
  		humidityAlert = snap.val().humidityAlert;
@@ -25,6 +71,7 @@
  		else{
  			$("#lightStatus").text("The light is off");
  		}
+
  		if (humidityAlert){
  			$("#alert").text("Alert!");
  		}
