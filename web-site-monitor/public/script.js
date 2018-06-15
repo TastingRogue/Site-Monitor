@@ -9,16 +9,12 @@
  };
  firebase.initializeApp(config);
 
- $(document).ready(function(){
- 	var database = firebase.database();
- 	var ledStatus;
-
- 	firebase.auth().onAuthStateChanged(function(user) {
+  	firebase.auth().onAuthStateChanged(function(user) {
  		var pathname = window.location.pathname;
   		if (user) {
     		// User is signed in.
-    		if (pathname == "/index.html") {
-    			window.location.replace("americas.html");
+    		if (pathname == "/") {
+    			window.location.replace("https://site-monitor-01.firebaseapp.com/americas.html");
     		}
     		var user = firebase.auth().currentUser;
     		if (user != null) {
@@ -29,10 +25,14 @@
   		} else {
     		// No user is signed in.
     		if (pathname == "/americas.html") {
-    			window.location.replace("index.html");
+    			window.location.replace("https://site-monitor-01.firebaseapp.com/");
     		}
   		}
 	});
+
+ $(document).ready(function(){
+ 	var database = firebase.database();
+ 	var ledStatus;
 
  	$("#login").click(function(){
  		var userEmail = document.getElementById("form2").value;
