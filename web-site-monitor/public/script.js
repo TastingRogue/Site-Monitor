@@ -15,7 +15,7 @@
  		var userEmail = document.getElementById("form2").value;
  		var userPassword = document.getElementById("form4").value;
 
-  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     .then(function() {
       return firebase.auth().signInWithEmailAndPassword(userEmail, userPassword);
     })
@@ -33,12 +33,6 @@
           if (pathname == "/") {
             //window.location.replace("https://site-monitor-01.firebaseapp.com/americas.html");
             window.location.replace("americas")
-          }
-          var user = firebase.auth().currentUser;
-          if (user != null) {
-            var email_id = user.email;
-
-            $("#userEmail").text(email_id);
           }
         } else {
           // No user is signed in.
