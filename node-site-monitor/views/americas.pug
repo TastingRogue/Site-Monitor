@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Site Monitor</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/stylesheets/mdb.min.css" rel="stylesheet">
+
+</head>
+
+<body class="fixed-sn graphite-skin">
+    <!--Double Navigation-->
+    <header>
+
+        <!-- Sidebar navigation -->
+        <ul id="slide-out" class="side-nav fixed custom-scrollbar ps-container ps-theme-default" data-ps-id="dcd2e9ff-59ee-90d2-5f38-a4795faa3958" style="transform: translateX(-100%);">
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper sn-ad-avatar-wrapper">
+                    <img src="/images/galloPNG-2.png" class="img-fluid rounded-circle">
+                    <div class="rgba-stylish-strong">
+                        <p id="userName" style="padding: 30px 0 0 30px;" class="user white-text">User</p>
+                        <p id="userEmail" style="margin-left: 10px;" class="user white-text">Email</p>
+                    </div>
+                </div>
+            </li>
+            <!--/. Logo -->
+
+            <!-- Side navigation links -->
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li style="margin-top: 30px;" class=""><a class="collapsible-header waves-effect arrow-r active" href="#"><i class="fa fa-street-view"></i> Americas</a></li>
+                    <li class=""><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-street-view"></i> Sao Paulo</a></li>
+                    <li class=""><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-street-view"></i> Allius</a></li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+
+        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></ul>
+        <!--/. Sidebar navigation -->
+
+        <!--Navbar-->
+        <nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+
+            <!-- SideNav slide-out button -->
+            <div class="float-xs-left">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn">
+                <p>SiteMonitor</p>
+            </div>
+
+            <!-- Redirect to loggin navbar -->
+            <ul class="nav navbar-nav float-xs-right">
+                <li id="logout" class="nav-item ">
+                    <a class="nav-link waves-effect waves-light" href="#"><i class="fa fa-user"></i> <span class="hidden-sm-down">Logout</span></a>
+                </li>
+            </ul>
+
+        </nav>
+        <!--/.Navbar-->
+
+    </header>
+
+    <!--Main layout-->
+    <main class="login_div">
+        <div class="container-fluid text-xs-center">
+            <div class="row">
+                <!--Carousel Wrapper-->
+                <div id="multi-item-example" class="carousel slide carousel-multi-item wow fadeIn" data-ride="carousel">
+                <div class="col-md-4">
+                    <!--Card-->
+                    <div class="card testimonial-card">
+                        <!--Bacground color-->
+                        <div class="card-up grey darken-4">
+                        </div>
+                        <!--Avatar-->
+                        <div class="avatar"><img src="/images/burn.png" class="img-circle img-responsive">
+                        </div>
+                        <div class="card-block">
+                            <!--Name-->
+                            <h4 class="card-title">Temperature</h4>
+                            <hr>
+                            <!--Quotation-->
+                            <h1 id="temp">32°C</h1>
+                        </div>
+                    </div>
+                    <!--/.Card-->
+                </div>
+
+                <div class="col-md-4">
+                  <!--Card-->
+                  <div class="card testimonial-card">
+                    <!--Bacground color-->
+                    <div class="card-up grey darken-4">
+                    </div>
+                    <!--Avatar-->
+                    <div class="avatar"><img src="/images/rain.png" class="img-circle img-responsive">
+                    </div>
+                    <div class="card-block">
+                      <!--Name-->
+                      <h4 class="card-title">Humidity</h4>
+                      <hr>
+                      <!--Quotation-->
+                      <h1 id="humidity">70%</h1>
+                    </div>
+                  </div>
+                  <!--/.Card-->
+                </div>
+
+                <div class="col-md-4">
+                    <!--Card-->
+                    <div class="card testimonial-card">
+                        <!--Bacground color-->
+                        <div class="card-up grey darken-4">
+                        </div>
+                        <!--Avatar-->
+                        <div id="lightButton" class="avatar"><img src="/images/galloPNG-2.png" class="img-circle img-responsive">
+                        </div>
+                        <div class="card-block">
+                          <!--Name-->
+                          <h4 id="lightStatus" class="card-title"></h4>
+                          <hr>
+                          <!--Quotation-->
+                          <h1 id="alert">Fine</h1>
+                    </div>
+                </div>
+                    <!--/.Card-->
+                </div>
+            </div>
+            </div>
+            <!--/.First slide-->
+        </div>
+    </main>
+    <!--/Main layout-->
+
+<!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="/javascripts/jquery-3.3.1.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
+    <!-- Conection Firebase -->
+    <script type="text/javascript" src="/javascripts/scriptAmericas.js"></script>
+
+    <!-- Tooltips -->
+    <script type="text/javascript" src="/javascripts/tether.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/javascripts/mdb.min.js"></script>
+
+    <div class="hiddendiv common"></div>
+    <div class="drag-target" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;">
+    </div>
+
+</body>
+</html>
