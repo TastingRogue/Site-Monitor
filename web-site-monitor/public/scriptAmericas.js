@@ -52,8 +52,8 @@ $(document).ready(function(){
  		ledStatus = snap.val().ledStatus;
  		humidityAlert = snap.val().humidityAlert;
 
- 		$("#temp").text(snap.val().Temperature);
- 		$("#humidity").text(snap.val().Humidity);
+ 		$("#temp").text(snap.val().Temperature + " C");
+ 		$("#humidity").text(snap.val().Humidity + " %");
  		if (ledStatus){
  			$("#lightStatus").text("The light is on");
  		}
