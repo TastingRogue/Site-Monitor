@@ -6,10 +6,10 @@
 #include "SparkFunHTU21D.h"
 
 // Set these to run example.
-#define FIREBASE_HOST "site-monitor-01.firebaseio.com"
-#define FIREBASE_AUTH "odewilCLq80qFMQQotsrp2bz2yQWkur21BVZ5Bm2"
-#define WIFI_SSID "Unosquare Mobiles"
-#define WIFI_PASSWORD "3336789139"
+#define FIREBASE_HOST "Firebase Host"
+#define FIREBASE_AUTH "Firebase Key"
+#define WIFI_SSID "Network SSID"
+#define WIFI_PASSWORD "Network Password"
 #define led 2
 
 //Create an instance of the object
