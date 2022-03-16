@@ -6,11 +6,11 @@
 
 // Set these to run example.
 #define FIREBASE_HOST "https://site-monitor-01.firebaseio.com/"
-#define FIREBASE_AUTH "odewilCLq80qFMQQotsrp2bz2yQWkur21BVZ5Bm2"
+#define FIREBASE_AUTH "Token"
 
 //Cambiar SSID y contraseña
 #define WIFI_SSID "ARRIS-0D65"
-#define WIFI_PASSWORD "748A0DF00D65"
+#define WIFI_PASSWORD "748A0DF"
 #define DHTPIN 2     // Digital pin connected to the DHT sensor 
 #define DHTTYPE    DHT11     // DHT 11
 
