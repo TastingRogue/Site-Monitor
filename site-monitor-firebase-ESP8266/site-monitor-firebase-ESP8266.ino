@@ -1,15 +1,21 @@
+#include <Firebase.h>
+#include <FirebaseArduino.h>
+#include <FirebaseCloudMessaging.h>
+#include <FirebaseError.h>
+#include <FirebaseHttpClient.h>
+#include <FirebaseObject.h>
+
 // FirebaseArduino API.
 
 #include <ESP8266WiFi.h>
-#include <FirebaseArduino.h>
 #include <Wire.h>
 #include "SparkFunHTU21D.h"
 
 // Set these to run example.
-#define FIREBASE_HOST "Firebase Host"
-#define FIREBASE_AUTH "Firebase Key"
-#define WIFI_SSID "Network SSID"
-#define WIFI_PASSWORD "Network Password"
+#define FIREBASE_HOST "https://site-monitor-01.firebaseio.com/"
+#define FIREBASE_AUTH "AIzaSyBjTGkYBr8DlxZLATlkEsi9geEMK_DldZY"
+#define WIFI_SSID "ARRIS-0D65"
+#define WIFI_PASSWORD "748A0DF00D65"
 #define led 2
 
 //Create an instance of the object
