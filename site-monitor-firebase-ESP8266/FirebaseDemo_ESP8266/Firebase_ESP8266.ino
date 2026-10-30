@@ -1,3 +1,4 @@
+#include "config.h"
 #include <ESP8266WiFi.h>
 #include <FirebaseESP8266.h>
 #include <Adafruit_Sensor.h>
@@ -5,12 +6,8 @@
 #include <DHT_U.h>
 
 // Set these to run example.
-#define FIREBASE_HOST "https://site-monitor-01.firebaseio.com/"
-#define FIREBASE_AUTH "Token"
 
 //Cambiar SSID y contraseña
-#define WIFI_SSID "ARRIS-0D65"
-#define WIFI_PASSWORD "748A0DF"
 #define DHTPIN 2     // Digital pin connected to the DHT sensor 
 #define DHTTYPE    DHT11     // DHT 11
 
@@ -19,6 +16,7 @@ DHT_Unified dht(DHTPIN, DHTTYPE);
 
 void setup() {
   Serial.begin(115200);
+  dht.begin();
 
   // connect to wifi.
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
@@ -39,8 +37,14 @@ void loop() {
   // set value
   sensors_event_t event;
   dht.temperature().getEvent(&event);
-  int temp = event.temperature;
-  int Humedad = event.relative_humidity;
+  float temp = event.temperature;
+  dht.humidity().getEvent(&event);
+  float Humedad = event.relative_humidity;
+  if (isnan(temp) || isnan(Humedad) || temp < -40 || temp > 125 || Humedad < 0 || Humedad > 100) {
+    Serial.println("Invalid sensor reading");
+    delay(2000);
+    return;
+  }
 
   Serial.print("Temperatura: ");
   Serial.println(temp);
@@ -48,7 +52,8 @@ void loop() {
   Serial.println(Humedad);
   
   //Cambiar por columna de DB
-  Firebase.setInt (firebaseData, "Temperature", temp);
-  Firebase.setInt (firebaseData, "Humidity", Humedad);
-  delay(1000);
+  if (!Firebase.setFloat(firebaseData, "Temperature", temp)) Serial.println(firebaseData.errorReason());
+  if (!Firebase.setFloat(firebaseData, "Humidity", Humedad)) Serial.println(firebaseData.errorReason());
+  if (!Firebase.setInt(firebaseData, "humidityAlert", Humedad > 55 ? 1 : 0)) Serial.println(firebaseData.errorReason());
+  delay(2000);
 }
